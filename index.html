@@ -60,8 +60,8 @@
 					<h3 class="fragment">I can help.</h3>
 				</section>
 
-				<section>
-					<h3>A bit of background...</h3>
+<section class="left">
+					<h2>A bit of background...</h2>
 					<ul>
 						<li class="fragment">I joined Esri in mid 2012 (From the Geoloqi acquisition)</li>
 						<li class="fragment">There was no developer site for ArcGIS</li>
@@ -69,8 +69,8 @@
 					</ul>
 				</section>
 
-				<section>
-					<h3>Since Then...</h3>
+				<section class="left">
+					<h2>Since Then...</h2>
 					<ul>
 						<li class="fragment">Most docs are moving/moved to developers.arcgis.com</li>
 						<li class="fragment">New tools for developers</li>
@@ -79,34 +79,152 @@
 					</ul>
 				</section>
 
-				<section>
-					<h3>And now...</h3>
-				</section>
-
-				<section>
-					<h3>Oauth 2</h3>
-				</section>
-
-				<section>
-					<!-- OH MY GOD ITS OAUTH 2-->
-				</section>
-
-				<section>
-					<h3>Lets face it</h3>
+				<section class="left">
+					<h2>Lets Build An App</h2>
 					<ul>
-						<li class="fragment">Oauth 2 is scary</li>
-						<li class="fragment">Oauth 2 is awesome</li>
-						<li class="fragment">Oauth 2 if the future</li>
+						<li class="fragment">Application</li>
+						<li class="fragment">Users</li>
+						<li class="fragment">OAuth 2</li>
 					</ul>
 				</section>
 
 				<section>
-					Before OAuth 2
-					<!-- Thanks for your password Dave :) -->
-					<a href="http://aaronparecki.com/presentations/2013/11/20/4/using-arcgis-with-oauth-2-0"> OAuth 2</a>
+					<img src="its-oauth-2.jpg" alt="Most reactions to OAuth">
 				</section>
 
 				<section class="left">
+					<h2>Lets face it Oauth 2 is&hellip;</h2>
+					<ul>
+						<li class="fragment">Scary</li>
+						<li class="fragment">Awesome</li>
+						<li class="fragment">The future</li>
+						<li class="fragment">All of the above</li>
+					</ul>
+				</section>
+
+				<section class="left">
+					<h3>For a more technical overview of Oauth 2</h3>
+					<br>
+					<p>
+						<a href="http://aaronparecki.com/presentations/2013/11/20/4/using-arcgis-with-oauth-2-0">http://aaronparecki.com/presentations/2013/11/20/4/using-arcgis-with-oauth-2-0</a>
+					</p>
+					<br>
+					<p>I'm only going to talk about Oauth 2 in a very basic sense&hellip;</p>
+				</section>
+
+				<section>
+					<h3>Before OAuth 2&hellip;</h3>
+					<img src="passwords.jpg" alt="thanks for your password">
+				</section>
+
+				<section>
+					<img src="now.png" alt="oauth login">
+				</section>
+
+				<section class="left">
+					<h2>OAuth 2 is great becuse&hellip;</h2>
+					<ul>
+						<li class="fragment">Users don't have to give away their passwords</li>
+						<li class="fragment">You dont have to store users passwords</li>
+						<li class="fragment">Standardized central &amp; authorative login system</li>
+						<li class="fragment">A well accepted standard around the web</li>
+					</ul>
+				</section>
+
+				<section class="left">
+						<h1>Decisions and Questions</h1>
+						<ul>
+							<li>Do my users have ArcGIS Online accounts?</li>
+							<li>Do I want my users to have to login w/ their ArcGIS Online accounts?</li>
+							<li>What is my users dont have ArcGIS Online accounts?</li>
+							<li>What if im using ArcGIS Server?</li>
+						</ul>
+				</section>
+
+				<section>
+					<h1>A Tale Of Two Use Cases</h1>
+					<h3>"App Logins" vs "User Logins"</h3>
+				</section>
+
+				<section>
+					<h1>"User Logins"</h1>
+					<p>Users allow your applcation to access their ArcGIS Online content an use services on their behalf.</p>
+				</section>
+
+				<section class="left">
+					<ul>
+						<li class="fragment">Users will login with their ArcGIS Online accounts</li>
+						<li class="fragment">You will get an <code>access_token</code> you can use</li>
+						<li class="fragment">You will be able to access that users content</li>
+						<li class="fragment">You can use the <code>access_token</code> to access premium services like directions, geocoding, GeoEnrichment, or the demographic maps</li>
+					</ul>
+				</section>
+
+				<section class="left">
+					<h2>"User Logins" great for</h2>
+					<ul>
+						<li class="fragment">Building apps for the ArcGIS Marketplace</li>
+						<li class="fragment">Extending ArcGIS Online</li>
+						<li class="fragment">Letting ArcGIS Online users access premium services</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>"App Logins"</h1>
+					<p>Your application uses services and accesses content on behalf of users.</p>
+				</section>
+
+				<section class="left">
+					<ul>
+						<li class="fragment">Users will not login with their ArcGIS Online accounts</li>
+						<li class="fragment">Your application will get an <code>access_token</code> from ArcGIS Online</li>
+						<li class="fragment">You can use the <code>access_token</code> to access premium services like directions, geocoding, GeoEnrichment, or the demographic maps</li>
+						<li class="fragment">You will be able to read (but not write) from services owned by the same account as the application</li>
+					</ul>
+				</section>
+
+				<section class="left">
+					<h2>"App Logins" Great For</h2>
+					<ul>
+						<li class="fragment">Allowing users to use ArcGIS Online services without authentication</li>
+						<li class="fragment">Letting your own authenticated users access ArcGIS services</li>
+						<li class="fragment">Server and script based applications</li>
+					</ul>
+				</section>
+
+				<section class="left">
+					<h1>Demo Apps</h1>
+					<ol>
+						<li>Vanilla JS user login</li>
+						<li>JS API user login</li>
+						<li>App login on the server</li>
+						<li>App login with a proxy</li>
+					</ol>
+				</section>
+
+				<section class="left">
+					<h1>Vanilla JS user login</h1>
+					<p>OAuth 2 with no frameworks or servers.</p>
+				</section>
+
+				<section class="left">
+					<h1>JS API user login</h1>
+					<p>Integrate OAuth 2 authentication into the JS API.</p>
+				</section>
+
+				<section class="left">
+					<h1>App login on the server</h1>
+					<p>Have our server make authenticated calls to ArcGIS Online.</p>
+				</section>
+
+				<section class="left">
+					<h1>App login with a proxy</h1>
+					<p>Use a proxy with the JS API so make authenticated calls without logging in.</p>
+				</section>
+
+				<section class="left">
+					<h1>Thanks</h1>
+					<br>
 					<p>Twitter : <a href="http://twitter.com/patrickarlt">@patrickarlt</a></p>
 					<br>
 					<p>GitHub : <a href="http://github.com/patrickarlt">GitHub</a></p>
