@@ -84,7 +84,7 @@
         domStyle.set("personalizedPanel", "display", "none");
       }
 
-      function signIn() {
+      signIn = function signIn() {
         OAuthHelper.signIn().then(displayItems);
       }
 
@@ -150,13 +150,13 @@
 <body class="claro">
 
   <div id="anonymousPanel" style="display: none; padding: 5px; text-align: center;">
-    <a href="javascript:void(0);" onclick="signIn();">Sign In</a> and view your ArcGIS Online items.
+    <a href="#" onclick="signIn();">Sign In</a> and view your ArcGIS Online items.
   </div>
 
   <div id="personalizedPanel" style="display: none; padding: 5px; text-align: center;">
     Welcome <span id="userId" style="font-weight: bold;"></span>
     &nbsp;-&nbsp;
-    <a href="javascript:void(0);" onclick="OAuthHelper.signOut();">Sign Out</a>
+    <a href="#" onclick="OAuthHelper.signOut();">Sign Out</a>
   </div>
 
   <div id="itemGallery" class="esri-item-gallery" style="width: 100%;"></div>
