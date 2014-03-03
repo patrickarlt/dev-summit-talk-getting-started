@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script>
+    var match;
+    if(window.location.hash && (match=window.location.hash.match(/#access_token=([^&]+)/))) {
+      if(window.opener && window.opener.parent) {
+        window.opener.parent.oauthCallback(match[1]);
+      } else {
+        window.parent.oauthCallback(match[1]);
+      }
+      window.close();
+    } else {
+      document.write('There was a problem logging in!');
+    }
+  </script>
+</head>
+<body></body>
+</html>

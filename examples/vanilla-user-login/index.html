@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ArcGIS Online OAuth Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  </head>
+  <body>
+    <button class="btn" id="btnSignIn" onclick="startOAuth();" style="width: 120px;">Sign in with ArcGIS Online</button>
+    <input type="text" id="tokenField" placeholder="Token" readonly>
+    <script>
+      var clientId = '9lm0KXAPilhE87ZI';
+      var redirectUrl = 'http://patrickarlt.github.io/dev-summit-talk-getting-started/examples/vanilla-user-login/callback.html';
+
+      function oauthUrl(){
+        var url = "https://www.arcgis.com/sharing/oauth2/authorize";
+        url += "?client_id="+clientId;
+        url += "&response_type=token";
+        url += "&expiration=20160";
+        url += "&redirect_uri=" + encodeURIComponent(redirectUrl);
+        return url;
+      }
+
+      function startOAuth() {
+        window.open(oauthUrl(), "oauth-window", "height=400,width=600,menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes");
+      }
+
+      window.oauthCallback = function(token) {
+        console.log("Token: " + token);
+        document.getElementById('tokenField').value = token;
+      }
+    </script>
+  </body>
+</html>
