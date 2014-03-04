@@ -132,12 +132,11 @@
 				</section>
 
 				<section class="left">
-						<h1>Decisions and Questions</h1>
+						<h2>Questions and Decisions</h2>
 						<ul>
-							<li>Do my users have ArcGIS Online accounts?</li>
-							<li>Do I want my users to have to login w/ their ArcGIS Online accounts?</li>
-							<li>What is my users dont have ArcGIS Online accounts?</li>
-							<li>What if im using ArcGIS Server?</li>
+							<li class="fragment">Do my users have ArcGIS Online accounts?</li>
+							<li class="fragment">Do I want my users to login w/ their ArcGIS Online accounts?</li>
+							<li class="fragment">What is my users don't have ArcGIS Online accounts?</li>
 						</ul>
 				</section>
 
@@ -154,9 +153,9 @@
 				<section class="left">
 					<ul>
 						<li class="fragment">Users will login with their ArcGIS Online accounts</li>
-						<li class="fragment">You will get an <code>access_token</code> you can use</li>
-						<li class="fragment">You will be able to access that users content</li>
-						<li class="fragment">You can use the <code>access_token</code> to access premium services like directions, geocoding, GeoEnrichment, or the demographic maps</li>
+						<li class="fragment">Your app will get an <code>access_token</code></li>
+						<li class="fragment">Use <code>access_token</code> to access that users content</li>
+						<li class="fragment">Use the <code>access_token</code> to access services like directions, geocoding, GeoEnrichment, ect...</li>
 					</ul>
 				</section>
 
@@ -171,20 +170,19 @@
 
 				<section>
 					<h1>"App Logins"</h1>
-					<p>Your application uses services and accesses content on behalf of users.</p>
+					<p>Your application uses services on behalf of users.</p>
 				</section>
 
 				<section class="left">
 					<ul>
-						<li class="fragment">Users will not login with their ArcGIS Online accounts</li>
-						<li class="fragment">Your application will get an <code>access_token</code> from ArcGIS Online</li>
-						<li class="fragment">You can use the <code>access_token</code> to access premium services like directions, geocoding, GeoEnrichment, or the demographic maps</li>
-						<li class="fragment">You will be able to read (but not write) from services owned by the same account as the application</li>
+						<li class="fragment">Your app gets an <code>access_token</code> from ArcGIS Online</li>
+						<li class="fragment">Use the <code>access_token</code> to access premium services like directions, geocoding, GeoEnrichment, ect&hellip;</li>
+						<li class="fragment">You will be able to read from services owned by the same account as the application</li>
 					</ul>
 				</section>
 
 				<section class="left">
-					<h2>"App Logins" Great For</h2>
+					<h2>"App Logins" great For</h2>
 					<ul>
 						<li class="fragment">Allowing users to use ArcGIS Online services without authentication</li>
 						<li class="fragment">Letting your own authenticated users access ArcGIS services</li>
@@ -195,29 +193,32 @@
 				<section class="left">
 					<h1>Demo Apps</h1>
 					<ol>
-						<li>Vanilla JS user login</li>
-						<li>JS API user login</li>
-						<li>App login on the server</li>
-						<li>App login with a proxy</li>
+						<li class="fragment">Vanilla JS user login</li>
+						<li class="fragment">JS API user login</li>
+						<li class="fragment">App login on the server</li>
+						<li class="fragment">App login with a proxy</li>
 					</ol>
 				</section>
 
-				<section class="left">
+				<section>
 					<h1>Vanilla JS user login</h1>
 					<p>OAuth 2 with no frameworks or servers.</p>
+					<a href="https://github.com/patrickarlt/dev-summit-talk-getting-started/tree/gh-pages/examples/vanilla-user-login">Source on GitHub</a>
 				</section>
 
-				<section class="left">
+				<section>
 					<h1>JS API user login</h1>
 					<p>Integrate OAuth 2 authentication into the JS API.</p>
+					<a href="https://github.com/patrickarlt/dev-summit-talk-getting-started/tree/gh-pages/examples/js-api-user-login">Source on GitHub</a>
 				</section>
 
-				<section class="left">
+				<section>
 					<h1>App login on the server</h1>
 					<p>Have our server make authenticated calls to ArcGIS Online.</p>
+					<a href=""></a>
 				</section>
 
-				<section class="left">
+				<section>
 					<h1>App login with a proxy</h1>
 					<p>Use a proxy with the JS API so make authenticated calls without logging in.</p>
 				</section>
