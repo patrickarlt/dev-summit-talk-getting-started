@@ -1,10 +1,13 @@
-var Hapi = require('hapi');
-var request = require('request');
+var Hapi = require('hapi'); // Hapi is a framework build building APIs
+var request = require('request'); // request is a generic module for making http requests
+
 var config = {
-  clientId: "XXX",
-  clientSecret: "XXX"
+  clientId: "XXX", // from an app on developers.arcgis.com
+  clientSecret: "XXX" // from an app on developers.arcgis.com
 };
 
+
+// this function gets a token from ArcGIS Online and then passes the token to a callback
 function getToken(callback){
   request({
     method: "post",
@@ -20,6 +23,7 @@ function getToken(callback){
   });
 }
 
+// querys the demographic data from ArcGIS Online given a lat/lng, a token and passes the result to a callback
 function queryDemographicData(lat, lng, token, callback){
   request({
     method: "post",
@@ -43,6 +47,7 @@ function queryDemographicData(lat, lng, token, callback){
   });
 }
 
+// gets demographic data for a lat/lng pair and passes it to a callback
 function getDemographicsFor(lat, lng, callback){
   getToken(function(error, token){
     queryDemographicData(lat, lng, token, function(error, data){
@@ -59,13 +64,16 @@ server.route({
   method: 'GET',
   path: '/demographics',
   handler: function (request, reply) {
-    var lat = request.query.lat;
-    var lng = request.query.lng;
+    var lat = request.query.lat; // get the lat from the query string
+    var lng = request.query.lng; // get the lng from the query string
+
+    // get some demographic data
     getDemographicsFor(lat, lng, function(error, data){
-      reply(error || data);
+      reply(error || data); // reply to the request with our data
     });
   }
 });
 
 // Start the server
+console.log("Hapi listening on http://localhost:3000");
 server.start();

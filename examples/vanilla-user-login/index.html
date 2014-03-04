@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>ArcGIS Online OAuth Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   </head>
+
   <body>
     <button class="btn" id="btnSignIn" onclick="startOAuth();" style="width: 120px;">Sign in with ArcGIS Online</button>
     <input type="text" id="tokenField" placeholder="Token" readonly>
+
     <script>
+      // setup a client id and redirect url from an application on ArcGIS for Developers
       var clientId = '9lm0KXAPilhE87ZI';
       var redirectUrl = 'http://patrickarlt.github.io/dev-summit-talk-getting-started/examples/vanilla-user-login/callback.html';
 
+      // return a properly formatted url
       function oauthUrl(){
-        var url = "https://www.arcgis.com/sharing/oauth2/authorize";
-        url += "?client_id="+clientId;
-        url += "&response_type=token";
-        url += "&expiration=20160";
-        url += "&redirect_uri=" + encodeURIComponent(redirectUrl);
+        var url = "https://www.arcgis.com/sharing/oauth2/authorize"; // the root of the oauth authorization
+        url += "?client_id="+clientId; // the client id
+        url += "&response_type=token"; // the kind of authentication we want (a token)
+        url += "&expiration=20160"; // when should the token expire, in minutes (2 weeks max)
+        url += "&redirect_uri=" + encodeURIComponent(redirectUrl); // where should we redirect to after logging in? Hint: the redirect url
         return url;
       }
 
+      // start the OAuth workflow by opening up a popup window.
       function startOAuth() {
         window.open(oauthUrl(), "oauth-window", "height=400,width=600,menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes");
       }
 
+      // this function will be called from the popup when we have a token
       window.oauthCallback = function(token) {
-        console.log("Token: " + token);
-        document.getElementById('tokenField').value = token;
+        console.log("Token: " + token); // dump token to console
+        document.getElementById('tokenField').value = token; // put the token in the input
       }
     </script>
   </body>
+
 </html>

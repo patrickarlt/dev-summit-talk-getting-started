@@ -4,12 +4,18 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <script>
     var match;
+
+    // do we have a url that looks like it contains an access_token?
     if(window.location.hash && (match=window.location.hash.match(/#access_token=([^&]+)/))) {
+
+      // are we in a popup? (window.opener) or an iframe? (window.parent)
       if(window.opener && window.opener.parent) {
-        window.opener.parent.oauthCallback(match[1]);
+        window.opener.parent.oauthCallback(match[1]); // call the oauthCallback function and pass in our token
       } else {
-        window.parent.oauthCallback(match[1]);
+        window.parent.oauthCallback(match[1]); // call the oauthCallback function and pass in our token
       }
+
+      // now close the popup
       window.close();
     } else {
       document.write('There was a problem logging in!');
